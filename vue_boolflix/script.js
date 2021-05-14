@@ -70,6 +70,10 @@ const app = new Vue({
             return "https://image.tmdb.org/t/p/" + posterSize + posterMovie.poster_path;
         },
 
+        vote(number){
+            return Math.ceil(number / 2);
+          },
+
 
     },
 

@@ -29,18 +29,22 @@
             <div class="list_movie">
                 <ul >
                     <li  v-for="(movie, index) in fusionArrayComplete">
+                        <div>
+                            <img :src="posterPathFinder(movie)" alt="poster movie">
+                        </div>
+                        <div>
 
-                        <img :src="posterPathFinder(movie)" alt="poster movie">
-
-                        <p><strong> Titolo</strong>-{{movie.title}}-</p>
-                        <p>
-                            <strong> Titolo originale</strong>-{{movie.original_title}}-
-                        </p>
-                        <p>
-                            <strong> Lingua originale</strong>-
-                            <span class="flag-icon flag-icon-squared" :class="'flag-icon-' + iconFlags(movie)"></span> -
-                        </p>
-                        <p><strong> voto</strong>-{{movie.vote_average}}-</p>
+                            <p><strong> Titolo</strong>-{{movie.title}}-</p>
+                            <p>
+                                <strong> Titolo originale</strong>-{{movie.original_title}}-
+                            </p>
+                            <p>
+                                <strong> Lingua originale</strong>-
+                                <span class="flag-icon flag-icon-squared" :class="'flag-icon-' + iconFlags(movie)"></span> -
+                            </p>
+                            <p><i  class="fa fa-star" v-for="i in vote (movie.vote_average)"></i></p>
+                        </div>
+                       
                     </li>
                 </ul>
             </div>
