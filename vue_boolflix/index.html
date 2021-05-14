@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <!-- flag link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
+        <!-- axios link -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
+        
+        <!-- vue link -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+        <!-- my css style -->
+        <link rel="stylesheet" href="style.css">
+
+        <title>Vue -boolflix</title>
+    </head>
+    <body>
+        <div id="app">
+            <div class="search_container">
+                <input type="search" v-model="searchInput">
+                <button @click="myResearch">Search</button>
+            </div>
+
+            <div class="list_movie">
+                <ul >
+                    <li  v-for="(movie, index) in moviesList">
+                        <h5><strong> Titolo</strong>-{{movie.title}}-</h5>
+                        <h5>
+                            <strong> Titolo originale</strong>-{{movie.original_title}}-
+                        </h5>
+                        <p>
+                            <strong> Lingua originale</strong>-
+                            <span class="flag-icon flag-icon-squared" :class="'flag-icon-' + iconFlags(movie)"></span> -
+                        </p>
+                        <p><strong> voto</strong>-{{movie.vote_average}}-</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <script src="script.js" ></script>
+    </body>
+</html>
