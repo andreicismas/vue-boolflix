@@ -4,7 +4,13 @@ const app = new Vue({
         apiKeyPersonal: "6d39ae316bc0b27bb4b8deb559102c72",
         searchInput: "",
         moviesList: [],
-        seriesTv:[],
+        seriesTv: [],
+
+    },
+    computed: {
+        fusionArrayComplete() {
+            return this.moviesList.concat(this.seriesTv)
+        },
     },
 
     methods: {
@@ -19,10 +25,10 @@ const app = new Vue({
 
             axios.get("https://api.themoviedb.org/3/search/" + typeSearch, axiosParams)
                 .then((resp) => {
-                    if(typeSearch==="movie"){
+                    if (typeSearch === "movie") {
                         this.moviesList = resp.data.results
-                    }else if(typeSearch === "tv"){
-                        this.seriesTv = resp.data.results.map((movieTv)=>{
+                    } else if (typeSearch === "tv") {
+                        this.seriesTv = resp.data.results.map((movieTv) => {
                             movieTv.original_title = movieTv.original_name
                             movieTv.title = movieTv.name
                             return movieTv
@@ -35,15 +41,26 @@ const app = new Vue({
         myResearch() {
             this.functionAxiSearch("movie");
             this.functionAxiSearch("tv");
-            let fusionArray =this.moviesList.concat(this.seriesTv)
-            console.log(fusionArray);
         },
-        
+
         iconFlags(movie) {
             const langMovie = movie.original_language;
-            const langList = [];
+            const langList = {
+                "en": "us",
+                "en": "gb",
+                "en": "ca",
+                "es": "es",
+                "es": "ar",
+                "es": "cu",
+                "es": "mx",
+                "de": "de",
+                "de": "be",
+                "de": "li",
+                "it": "it",
+                "it": "sm"
+            };
             if (Object.keys(langList).includes(langMovie)) {
-                return langList[langMovie][0];
+                return langList[langMovie];
             } else {
                 return langMovie;
             }
@@ -52,5 +69,5 @@ const app = new Vue({
 
     },
 
-   
+
 });
