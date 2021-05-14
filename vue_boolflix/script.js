@@ -42,13 +42,14 @@ const app = new Vue({
         iconFlags(movie) {
             const langMovie = movie.original_language;
             const langList = [];
-
             if (Object.keys(langList).includes(langMovie)) {
                 return langList[langMovie][0];
             } else {
                 return langMovie;
             }
         },
+
+
     },
 
    

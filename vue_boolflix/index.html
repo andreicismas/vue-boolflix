@@ -26,10 +26,10 @@
             <div class="list_movie">
                 <ul >
                     <li  v-for="(movie, index) in moviesList">
-                        <h5><strong> Titolo</strong>-{{movie.title}}-</h5>
-                        <h5>
+                        <p><strong> Titolo</strong>-{{movie.title}}-</p>
+                        <p>
                             <strong> Titolo originale</strong>-{{movie.original_title}}-
-                        </h5>
+                        </p>
                         <p>
                             <strong> Lingua originale</strong>-
                             <span class="flag-icon flag-icon-squared" :class="'flag-icon-' + iconFlags(movie)"></span> -
