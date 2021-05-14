@@ -5,6 +5,9 @@
         <!-- flag link -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
 
+        <!-- font-awesome link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <!-- axios link -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
         
@@ -26,7 +29,8 @@
             <div class="list_movie">
                 <ul >
                     <li  v-for="(movie, index) in fusionArrayComplete">
-                       
+
+                        <img :src="posterPathFinder(movie)" alt="poster movie">
 
                         <p><strong> Titolo</strong>-{{movie.title}}-</p>
                         <p>

@@ -65,6 +65,10 @@ const app = new Vue({
                 return langMovie;
             }
         },
+        posterPathFinder(posterMovie) {
+            const posterSize = "w342"
+            return "https://image.tmdb.org/t/p/" + posterSize + posterMovie.poster_path;
+        },
 
 
     },
