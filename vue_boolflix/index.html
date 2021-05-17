@@ -14,6 +14,7 @@
         <!-- vue link -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
+
         <!-- my css style -->
         <link rel="stylesheet" href="style.css">
 
@@ -21,28 +22,36 @@
     </head>
     <body>
         <div id="app">
+
             <div class="search_container">
-                <input type="search" v-model="searchInput">
-                <button @click="myResearch">Search</button>
+                <div class="container_logo">
+                    <img src="img/boolflix.png" alt="">
+                </div>
+
+                <div class="container_search">
+                    <input type="search" v-model="searchInput" @keyup.enter="myResearch">
+                    <button @click="myResearch">Search</button>
+                </div>
             </div>
 
             <div class="list_movie">
-                <ul >
-                    <li  v-for="(movie, index) in fusionArrayComplete">
-                        <div>
+                <ul class="container_card">
+                    <li class="list_card" v-for="(movie, index) in fusionArrayComplete">
+                        <div class="contrainer_img">
                             <img :src="posterPathFinder(movie)" alt="poster movie">
                         </div>
-                        <div>
+                        <div class="container_info">
 
-                            <p><strong> Titolo</strong>-{{movie.title}}-</p>
+                            <p><strong> Titolo</strong> <span class="overflow_text">-{{movie.title}}-</span> </p>
+
                             <p>
-                                <strong> Titolo originale</strong>-{{movie.original_title}}-
+                                <strong> Titolo originale</strong> <span class="overflow_text">-{{movie.original_title}}-</span> 
                             </p>
-                            <p>
+                            <p >
                                 <strong> Lingua originale</strong>-
                                 <span class="flag-icon flag-icon-squared" :class="'flag-icon-' + iconFlags(movie)"></span> -
                             </p>
-                            <p><i  class="fa fa-star" v-for="i in vote (movie.vote_average)"></i></p>
+                            <p ><i  class="fa fa-star" v-for="i in vote (movie.vote_average)"></i></p>
                         </div>
                        
                     </li>

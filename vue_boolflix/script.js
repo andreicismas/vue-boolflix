@@ -66,13 +66,18 @@ const app = new Vue({
             }
         },
         posterPathFinder(posterMovie) {
-            const posterSize = "w342"
-            return "https://image.tmdb.org/t/p/" + posterSize + posterMovie.poster_path;
+            const posterSize = "w185"
+            if (posterMovie.poster_path) {
+                return `https://image.tmdb.org/t/p/${posterSize}${posterMovie.poster_path}`;
+
+            } else {
+                return "/vue_boolflix/img/palceholder.png"
+            }
         },
 
-        vote(number){
+        vote(number) {
             return Math.ceil(number / 2);
-          },
+        },
 
 
     },
